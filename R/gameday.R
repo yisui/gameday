@@ -8,4 +8,6 @@
 #'
 #' @docType package
 #' @name gameday
+#'
 NULL
+

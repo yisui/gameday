@@ -1,26 +1,41 @@
 #' Is it Gameday?
 #'
-#' This function returns TRUE if you NHL team plays today and FALSE otherwise
+#' This function returns TRUE if you NHL team plays today and FALSE otherwise.
 #'
-#' You know then problem: You're in your office writing R code and
+#' You know the problem: You're in your office writing R code and
 #' suddenly have the urge to check whether your NHL team has a game today.
 #' Before you know it you just wasted 15 minutes browsing the lastest
 #' news on your favorite hockey webpage.
 #' Suffer no more! You can now ask R directly, without tempting yourself
 #' by firing up your web browser.
 #'
-#' @param team.name The name of your team
-#' @return  Logical \code{TRUE} if \code{team.name} has a NHL game today,
-#' \code{FALSE} otherwise
-#' @note case in \code{team.name} is ignored
+#' @param \code{team}  The name of the team which you want to check with.
+#' The default is set to be "canucks".
+#' @param \code{date}  The date gives you option to see whether the team plays or
+#' played on a particular day. The default is set to be today's date.
+#' @return  Logical. It returns \code{TRUE} if \code{team} has a NHL game today,
+#' \code{FALSE} otherwise.
+#' @keywords misc
+#' @note case in \code{team} is ignored
 #' @export
 #' @examples
-#' gday("canucks")
-#' gday("Bruins")
+#' ## By default, gday() is the same thing as gday("canucks", Sys.Date())
+#' gday()
+#' gday("Bruins", "2014-11-02")
+#'
 
 
-gday <- function(team.name){
+gday <- function(team = "canucks", date = Sys.Date()){
+	assertthat::assert_that(check_date(date))
+
+	if (internet_connection() == FALSE){
+		return("There is no internet connection! Please check.")}
+	else
 	url <- paste0("http://live.nhle.com/GameData/GCScoreboard/",
-								Sys.Date(), ".jsonp")
-	grepl(team.name, getURL(url), ignore.case = TRUE)
-}
+								date, ".jsonp")
+	grepl(team, RCurl::getURL(url), ignore.case = TRUE)
+
+	}
+
+
+
