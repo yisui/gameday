@@ -1,0 +1,121 @@
+---
+title: "Overview of Gameday"
+author: "Yi Sui"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Overview of Gameday}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+
+## Introduction
+
+You are really a big hocky fan! When you're in your office writing R code and suddenly 
+have the urge to check whether your NHL team has a game today and whether your NHL team 
+won the game on a particular date. Now instead of using 15 minutes browsing the lastest 
+news on your favorite hockey webpage, you can now ask R directly with the help
+of this `gameday` package.
+
+The `gameday` package provides a convenient way to know whether a specified NHL team has a 
+game on a specified date and final scores of all the games on a specified date through `r` 
+instead of the traditional way -- searching on the Internet. 
+
+
+## Load the package 
+
+In order to use the functions in the `gameday` packages, we need first load the package
+by using 
+```{r}
+library(gameday)
+```
+
+
+## Function gday(team, date)
+
+This function gives the option to check whether a specified NHL team has a 
+game on a specified date. 
+
+The function has two arguments: `team` and `date`. __NOTE: Both these two argument 
+should be input as a string, i.e. with quotation mark around the input argument, and 
+the date should be in the right date format, i.e. "yyyy-mm-dd".
+In default, the `team` is set to be "Canucks" and `date` is set to be today's date. 
+For example, we can check whether "Canucks" has a game tonight with:
+```{r}
+# check whether "Canucks" has a game today
+gday()
+```
+
+If we want to check whether "Bruins" has a game on "2014-11-02" or not, we can do:
+```{r}
+# check whether "Bruins" has a game on "2014-11-02"
+gday("Bruins", "2014-11-02")
+```
+
+__NOTE: This function is not case sensitive.__ For example: we can either use 
+"Canucks" or "canucks" to check for the game information.
+```{r}
+# apply gday() to "Canucks"
+gday("Canucks")
+
+# apply gday() to "canucks"
+gday("canucks")
+
+# confirm gday() is not case sensitive
+identical(gday("Canucks"), gday("canucks"))
+```
+
+__NOTE: If all the sudden, you forgot the name of team asking by the city name also works in `gday()`.__ For example, instead of asking "canucks", we can also use "Vancouver".
+
+```{r}
+# apply gday() to "canucks"
+gday("canucks")
+
+# apply gday() to "Vancouver"
+gday("Vancouver")
+
+# confirm asking by the city name also works
+identical(gday("canucks"), gday("Vancouver"))
+```
+
+## Function scores(date)
+
+This function gives the option to display the final scores of all the games on a 
+specified date as a `data.frame`. 
+
+The function only takes one argument `date`. Again, the date should be in the right date 
+format, i.e. "yyyy-mm-dd". For example, we can check the final scores for the games
+happen on "2014-11-18":
+```{r}
+# look up the final scores for the games on "2014-11-18"
+scores("2014-11-18")
+```
+
+We can see that it returns a `data.frame` with four columns. The first column shows the 
+name of the home team, the second column for the name of the away team. The third column 
+gives the score for the home team, while the score for the away team is given on the 
+forth column.
+
+Since we can use the function `score(date)` to get a very informative `data.frame` with 
+all the final scores for the games at a perticular date, we can go from this 
+`data.frame` to gain some insight. For example, we can use the `data.frame` to list all 
+winning teams on "2014-11-18". In order to do that, we will need our old friend `dplyr`.
+```{r}
+# load package "dplyr"
+suppressPackageStartupMessages(library(dplyr))
+```
+
+Now we can use `dplyr` to find the winning teams on "2014-11-18".
+```{r}
+# look for the winning teams  on "2014-11-18"
+scores_data <- scores("2014-11-18")
+
+scores_data %>%
+	mutate(winning_team = ifelse(home_score > away_score, as.character(home), 
+															as.character(away))) %>%
+	select(winning_team)
+```
+
+We can compare the "winning_team" with our original `data.frame` "scores_data" and see 
+all the teams display here are indeed the winning teams on "2014-11-18".
+
