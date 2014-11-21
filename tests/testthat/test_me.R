@@ -67,3 +67,10 @@ test_that("Score function returns a data frame", {
 test_that("Can't check scores for a invalid date", {
 	expect_error(scores(date = "201-411-12"))
 })
+
+context("check team")
+#
+test_that("San Fransicso doesn't have a NHL team",{
+	expect_error(gday(team = "San Fransicso"))
+	expect_error(gday(team = "bear"))
+})

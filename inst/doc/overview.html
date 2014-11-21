@@ -10,7 +10,7 @@
 
 <meta name="author" content="Yi Sui" />
 
-<meta name="date" content="2014-11-20" />
+<meta name="date" content="2014-11-21" />
 
 <title>Overview of Gameday</title>
 
@@ -54,7 +54,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="header">
 <h1 class="title">Overview of Gameday</h1>
 <h4 class="author"><em>Yi Sui</em></h4>
-<h4 class="date"><em>2014-11-20</em></h4>
+<h4 class="date"><em>2014-11-21</em></h4>
 </div>
 
 
@@ -74,7 +74,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>The function has two arguments: <code>team</code> and <code>date</code>. <strong>NOTE: Both these two argument should be input as a string, i.e. with quotation mark around the input argument, and the date should be in the right date format, i.e. “yyyy-mm-dd”.</strong> In default, the <code>team</code> is set to be “Canucks” and <code>date</code> is set to be today’s date. For example, we can check whether “Canucks” has a game tonight with:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check whether &quot;Canucks&quot; has a game today</span>
 <span class="kw">gday</span>()</code></pre>
-<pre><code>## [1] TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <p>If we want to check whether “Bruins” has a game on “2014-11-02” or not, we can do:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check whether &quot;Bruins&quot; has a game on &quot;2014-11-02&quot;</span>
 <span class="kw">gday</span>(<span class="st">&quot;Bruins&quot;</span>, <span class="st">&quot;2014-11-02&quot;</span>)</code></pre>
@@ -82,20 +82,20 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p><strong>NOTE: This function is not case sensitive.</strong> For example: we can either use “Canucks” or “canucks” to check for the game information.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># apply gday() to &quot;Canucks&quot;</span>
 <span class="kw">gday</span>(<span class="st">&quot;Canucks&quot;</span>)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># apply gday() to &quot;canucks&quot;</span>
 <span class="kw">gday</span>(<span class="st">&quot;canucks&quot;</span>)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># confirm gday() is not case sensitive</span>
 <span class="kw">identical</span>(<span class="kw">gday</span>(<span class="st">&quot;Canucks&quot;</span>), <span class="kw">gday</span>(<span class="st">&quot;canucks&quot;</span>))</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <p><strong>NOTE: If all the sudden, you forgot the name of team asking by the city name also works in <code>gday()</code>.</strong> For example, instead of asking “canucks”, we can also use “Vancouver”.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># apply gday() to &quot;canucks&quot;</span>
 <span class="kw">gday</span>(<span class="st">&quot;canucks&quot;</span>)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># apply gday() to &quot;Vancouver&quot;</span>
 <span class="kw">gday</span>(<span class="st">&quot;Vancouver&quot;</span>)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># confirm asking by the city name also works</span>
 <span class="kw">identical</span>(<span class="kw">gday</span>(<span class="st">&quot;canucks&quot;</span>), <span class="kw">gday</span>(<span class="st">&quot;Vancouver&quot;</span>))</code></pre>
 <pre><code>## [1] TRUE</code></pre>

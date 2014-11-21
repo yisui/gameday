@@ -60,6 +60,7 @@ A more detailed manual of the `gameday` package and its functions can be found i
 vignette. To access the vigette, after loading the `gameday` package, you run the 
 following command in the `R` console:
 ```{r eval = F}
+library(gameday)
 browseVignettes(package = "gameday")
 ```
 

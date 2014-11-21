@@ -71,6 +71,7 @@ vignette. To access the vigette, after loading the `gameday` package, you run th
 following command in the `R` console:
 
 ```r
+library(gameday)
 browseVignettes(package = "gameday")
 ```
 

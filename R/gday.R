@@ -27,6 +27,7 @@
 
 gday <- function(team = "canucks", date = Sys.Date()){
 	assertthat::assert_that(check_date(date))
+	assertthat::assert_that(check_team(team))
 
 	if (internet_connection() == FALSE){
 		return("There is no internet connection! Please check.")}
