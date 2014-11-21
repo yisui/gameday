@@ -3,13 +3,16 @@
 \name{gameday}
 \alias{gameday}
 \alias{gameday-package}
-\title{My first R package: gameday}
+\title{R package: gameday}
 \description{
-A one-line summary of what this package is for
+This package provides an easy way to access the data for NHL teams through R.
 }
 \details{
-Then we can add a larger paragraph
-that can span several
-lines
+There are two functions \code{gday(team, date)} and \code{scores(date)}
+in the gameday package.
+\code{gday(team, date)} gives an option to check whether a specified NHL team has a
+game on a specified date. \code{scores(date)} gives the option to display the scores of
+all the games on a specified date as a \code{data.frame}. \code{scores(date)} also
+provides the information about whether the game can be watched on the "gamecenter".
 }
 

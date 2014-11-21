@@ -29,9 +29,9 @@ gday("Vancouver")
 # confirm asking by the city name also works
 identical(gday("canucks"), gday("Vancouver"))
 
-## ------------------------------------------------------------------------
-# look up the final scores for the games on "2014-11-18"
-scores("2014-11-18")
+## ----, results='asis'----------------------------------------------------
+# look up the scores for the games on "2014-11-19"
+knitr::kable(scores("2014-11-19"))
 
 ## ------------------------------------------------------------------------
 # load package "dplyr"

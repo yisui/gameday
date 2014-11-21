@@ -1,20 +1,24 @@
 # save as tests/testthat/test_me.R
 
+context("check case")
 # test gday() function is not case sesitive
 test_that("case is ignored", {
 	expect_equal(gday("canucks"), gday("CANUCKS"))
 })
 
+context("check logical")
 # test gday() returns a logical
 test_that("always returns logical", {
 	expect_is(gday("canucks"), "logical")
 })
 
+context("check city name")
 # test gday() also works when using the city name
 test_that("asking for the city works just as well", {
 	expect_equal(gday("canucks"), gday("Vancouver"))
 })
 
+context("check default")
 # test the default team is set to be Canucks
 test_that("the default team is set to be Canucks",{
 	expect_equal(gday(date = "2014-11-02"), gday( "canucks", "2014-11-02"))
@@ -26,6 +30,7 @@ test_that("the default date is set to be today",{
 	expect_equal(gday("canucks", Sys.Date()), gday(team = "canucks"))
 })
 
+context("check date")
 # test that Vancouver Canucks had a game with predators on 2014-11-02
 test_that("Vancouver Canucks had a game with predators on 2014-11-02", {
 	expect_true(gday(team = "canucks",   date = "2014-11-02"))
@@ -52,6 +57,7 @@ test_that("Wrong date type throws error", {
 	expect_error(gday("Bruins", date = "201-411-12"))
 })
 
+context("check scores")
 # test that scores() returns a data.frame
 test_that("Score function returns a data frame", {
 	expect_is(scores(Sys.Date()), "data.frame")

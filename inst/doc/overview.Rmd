@@ -11,14 +11,14 @@ vignette: >
 
 ## Introduction
 
-You are really a big hocky fan! When you're in your office writing R code and suddenly 
+You are really a big hocky fan! When you're in your office writing `R` code and suddenly 
 have the urge to check whether your NHL team has a game today and whether your NHL team 
 won the game on a particular date. Now instead of using 15 minutes browsing the lastest 
-news on your favorite hockey webpage, you can now ask R directly with the help
+news on your favorite hockey webpage, you can now ask `R` directly with the help
 of this `gameday` package.
 
 The `gameday` package provides a convenient way to know whether a specified NHL team has a 
-game on a specified date and final scores of all the games on a specified date through `r` 
+game on a specified date and scores of all the games on a specified date through `R` 
 instead of the traditional way -- searching on the Internet. 
 
 
@@ -38,7 +38,7 @@ game on a specified date.
 
 The function has two arguments: `team` and `date`. __NOTE: Both these two argument 
 should be input as a string, i.e. with quotation mark around the input argument, and 
-the date should be in the right date format, i.e. "yyyy-mm-dd".
+the date should be in the right date format, i.e. "yyyy-mm-dd".__
 In default, the `team` is set to be "Canucks" and `date` is set to be today's date. 
 For example, we can check whether "Canucks" has a game tonight with:
 ```{r}
@@ -80,24 +80,34 @@ identical(gday("canucks"), gday("Vancouver"))
 
 ## Function scores(date)
 
-This function gives the option to display the final scores of all the games on a 
+This function gives the option to display the scores of all the games on a 
 specified date as a `data.frame`. 
 
 The function only takes one argument `date`. Again, the date should be in the right date 
-format, i.e. "yyyy-mm-dd". For example, we can check the final scores for the games
-happen on "2014-11-18":
-```{r}
-# look up the final scores for the games on "2014-11-18"
-scores("2014-11-18")
+format, i.e. "yyyy-mm-dd". For example, we can check the scores for the games
+happen on "2014-11-19":
+
+```{r, results='asis'}
+# look up the scores for the games on "2014-11-19"
+knitr::kable(scores("2014-11-19"))
 ```
 
-We can see that it returns a `data.frame` with four columns. The first column shows the 
-name of the home team, the second column for the name of the away team. The third column 
-gives the score for the home team, while the score for the away team is given on the 
-forth column.
+__NOTE: `knitr` is used above to make a nice looking table.__
+
+We can see that it returns a `data.frame` six columns. The first column shows the name of 
+the home team, the second column for the name of the away team. The third column gives 
+the score for the home team, while the score for the away team is given on the forth 
+column. The column "stage" shows the current stage of the game and the 
+last column gives a friendly note about whether you will be able to watch the game on 
+"gamecenter" or not.
+
+__NOTE: There are three possible outcomes in the "stage" column. If a game haven't 
+started yet, in the "stage" column it will show the game starting time in EST. If the 
+game is in progress, it will show which period the game is at and the remaining time for
+this period. If a game has finished, it will show "Final".__
 
 Since we can use the function `score(date)` to get a very informative `data.frame` with 
-all the final scores for the games at a perticular date, we can go from this 
+all the scores for the games at a perticular date, we can go from this 
 `data.frame` to gain some insight. For example, we can use the `data.frame` to list all 
 winning teams on "2014-11-18". In order to do that, we will need our old friend `dplyr`.
 ```{r}

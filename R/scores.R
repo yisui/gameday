@@ -1,24 +1,29 @@
-#' What are the final scores for the games at a particular date?
+#' What are the scores for the games on a particular date?
 #'
-#' This function returns a data.frame with the final scores of the games on a
+#' This function returns a data.frame with the scores of the games on a
 #' particular date.
 #'
 #' You know the problem: You're in your office writing R code and
-#' suddenly have the urge to check the final scores of the games on
+#' suddenly have the urge to check the scores of the games on
 #' a particular date.
 #' Before you know it you just wasted 15 minutes browsing the lastest
 #' news on your favorite hockey webpage.
 #' Suffer no more! You can now ask R directly, without tempting yourself
 #' by firing up your web browser.
 #'
-#' @param \code{date}  The specified date which you want to look the final scores
-#' of all the games for.
-#' @return A data.frame with four columns. The first column shows the name of the home
+#' @param \code{date}  The specified date which you want to look for the scores
+#' of all the games.
+#' @return A data.frame with six columns. The first column shows the name of the home
 #' team, the second column for the name of the away team. The third column gives
 #' the score for the home team, while the score for the away team is given on the
-#' forth column.
+#' forth column. The column "stage" shows the current stage of the
+#' game and the last column gives a friendly note about whether you will be able to
+#' watch the game on "gamecenter" or not.
 #' @note The \code{date} must be entered as a string in the format: "yyyy-mm-dd".
-#' The score columns will be empty if a future date is entered.
+#' The score columns will be empty if a future date is entered. If a game haven't started
+#' yet, in the "stage" column it will show the game starting time in EST. If the game is
+#' in progress, it will show which period the game is at and the remaining time for
+#' this period. If a game has finished, it will show "Final".
 #' @export
 #' @examples
 #' scores(Sys.Date())
@@ -40,5 +45,7 @@ scores <- function(date){
 			data.frame(home = paste(htn, htcommon),
 			 					 away = paste(atn, atcommon),
 			 					 home_score = hts,
-			 					 away_score = ats))
+			 					 away_score = ats,
+								 stage = bs,
+								 live_gamecenter = gcl))
 }
