@@ -46,15 +46,15 @@ on a specified date as a `data.frame`. For example, if we want to know all the g
 results on "2014-11-19", we can do:
 
 ```r
-knitr::kable(scores("2014-11-19"))
+knitr::kable(scores("2014-11-19"), format = "markdown")
 ```
 
 
 
-home                 away                   home_score   away_score  stage   live_gamecenter 
--------------------  --------------------  -----------  -----------  ------  ----------------
-NY RANGERS RANGERS   PHILADELPHIA FLYERS             2            0  FINAL   TRUE            
-EDMONTON OILERS      VANCOUVER CANUCKS               4            5  FINAL   TRUE            
+|home               |away                | home_score| away_score|stage |live_gamecenter |
+|:------------------|:-------------------|----------:|----------:|:-----|:---------------|
+|NY RANGERS RANGERS |PHILADELPHIA FLYERS |          2|          0|FINAL |TRUE            |
+|EDMONTON OILERS    |VANCOUVER CANUCKS   |          4|          5|FINAL |TRUE            |
 
 __NOTE: `scores(date)` also returns a column "stage" shows the current 
 stage of the game.__ If a game haven't 

@@ -43,7 +43,7 @@ The `scores(date)` function gives the option to display the scores of all the ga
 on a specified date as a `data.frame`. For example, if we want to know all the game 
 results on "2014-11-19", we can do:
 ```{r, results='asis'}
-knitr::kable(scores("2014-11-19"))
+knitr::kable(scores("2014-11-19"), format = "markdown")
 ```
 
 __NOTE: `scores(date)` also returns a column "stage" shows the current 

@@ -78,7 +78,7 @@ library(gameday)</code></pre>
 <pre class="r"><code>gday(&quot;wild&quot;, &quot;2014-11-18&quot;)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p>The <code>scores(date)</code> function gives the option to display the scores of all the games on a specified date as a <code>data.frame</code>. For example, if we want to know all the game results on “2014-11-19”, we can do:</p>
-<pre class="r"><code>knitr::kable(scores(&quot;2014-11-19&quot;))</code></pre>
+<pre class="r"><code>knitr::kable(scores(&quot;2014-11-19&quot;), format = &quot;markdown&quot;)</code></pre>
 <table>
 <thead>
 <tr class="header">
