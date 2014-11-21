@@ -67,7 +67,7 @@ this period. If a game has finished, it will show "Final". The `TRUE` in the col
 ## How to access vignette
 
 A more detailed manual of the `gameday` package and its functions can be found in the 
-vignette. To access the vigette, after loading the `gameday` package, you run the 
+vignette. To access the vignette, after loading the `gameday` package, you run the 
 following command in the `R` console:
 
 ```r
