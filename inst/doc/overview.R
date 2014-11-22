@@ -30,8 +30,8 @@ gday("Vancouver")
 identical(gday("canucks"), gday("Vancouver"))
 
 ## ----, results='asis'----------------------------------------------------
-# look up the scores for the games on "2014-11-19"
-knitr::kable(scores("2014-11-19"))
+# look up the scores for the games on "2014-11-18"
+knitr::kable(scores("2014-11-18"))
 
 ## ------------------------------------------------------------------------
 # load package "dplyr"

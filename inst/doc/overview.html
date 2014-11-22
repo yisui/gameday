@@ -103,9 +103,9 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <div id="function-scoresdate" class="section level2">
 <h2>Function scores(date)</h2>
 <p>This function gives the scores of all the games on a specified date as a <code>data.frame</code>.</p>
-<p>The function only takes one argument <code>date</code>. Again, the date should be in the right date format, i.e. “yyyy-mm-dd”. For example, we can check the scores for the games happen on “2014-11-19”:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># look up the scores for the games on &quot;2014-11-19&quot;</span>
-knitr::<span class="kw">kable</span>(<span class="kw">scores</span>(<span class="st">&quot;2014-11-19&quot;</span>))</code></pre>
+<p>The function only takes one argument <code>date</code>. Again, the date should be in the right date format, i.e. “yyyy-mm-dd”. For example, we can check the scores for the games happen on “2014-11-18”:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># look up the scores for the games on &quot;2014-11-18&quot;</span>
+knitr::<span class="kw">kable</span>(<span class="kw">scores</span>(<span class="st">&quot;2014-11-18&quot;</span>))</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -119,18 +119,90 @@ knitr::<span class="kw">kable</span>(<span class="kw">scores</span>(<span class=
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">NY RANGERS RANGERS</td>
-<td align="left">PHILADELPHIA FLYERS</td>
+<td align="left">BOSTON BRUINS</td>
+<td align="left">ST LOUIS BLUES</td>
 <td align="right">2</td>
 <td align="right">0</td>
 <td align="left">FINAL</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">EDMONTON OILERS</td>
-<td align="left">VANCOUVER CANUCKS</td>
-<td align="right">4</td>
+<td align="left">NY ISLANDERS ISLANDERS</td>
+<td align="left">TAMPA BAY LIGHTNING</td>
 <td align="right">5</td>
+<td align="right">2</td>
+<td align="left">FINAL</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">COLUMBUS BLUE JACKETS</td>
+<td align="left">DETROIT RED WINGS</td>
+<td align="right">0</td>
+<td align="right">5</td>
+<td align="left">FINAL</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">BUFFALO SABRES</td>
+<td align="left">SAN JOSE SHARKS</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="left">FINAL</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">TORONTO MAPLE LEAFS</td>
+<td align="left">NASHVILLE PREDATORS</td>
+<td align="right">2</td>
+<td align="right">9</td>
+<td align="left">FINAL</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">MONTREAL CANADIENS</td>
+<td align="left">PITTSBURGH PENGUINS</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="left">FINAL</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">WINNIPEG JETS</td>
+<td align="left">NEW JERSEY DEVILS</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="left">FINAL</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">DALLAS STARS</td>
+<td align="left">CAROLINA HURRICANES</td>
+<td align="right">4</td>
+<td align="right">6</td>
+<td align="left">FINAL</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">CALGARY FLAMES</td>
+<td align="left">ANAHEIM DUCKS</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="left">FINAL SO</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">ARIZONA COYOTES</td>
+<td align="left">WASHINGTON CAPITALS</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="left">FINAL OT</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">LOS ANGELES KINGS</td>
+<td align="left">FLORIDA PANTHERS</td>
+<td align="right">5</td>
+<td align="right">2</td>
 <td align="left">FINAL</td>
 <td align="left">TRUE</td>
 </tr>
