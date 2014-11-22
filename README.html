@@ -67,7 +67,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <p><code>gameday</code> package can be easily installed from GitHub. To install the package, we need to do this:</p>
 <pre class="r"><code>library(devtools)
 install_github(&quot;yisui/gameday&quot;)</code></pre>
-<p><strong>NOTE: Here the package <code>devtools</code> is needed.</strong></p>
+<p><strong>NOTE: Here the package <code>devtools</code> is needed. To make sure vignette get built, we can inculde <code>build_vignettes = TRUE</code> in <code>install_github()</code>.</strong></p>
 </div>
 <div id="how-gameday-works" class="section level2">
 <h2>How gameday works</h2>
@@ -114,10 +114,10 @@ library(gameday)</code></pre>
 <div id="how-to-access-vignette" class="section level2">
 <h2>How to access vignette</h2>
 <p>A more detailed manual of the <code>gameday</code> package and its functions can be found in the vignette. To access the vignette, after loading the <code>gameday</code> package, you run the following command in the <code>R</code> console:</p>
-<pre class="r"><code>library(gameday)
-browseVignettes(package = &quot;gameday&quot;)</code></pre>
+<pre class="r"><code>browseVignettes(package = &quot;gameday&quot;)</code></pre>
 <p>Then you can click on <code>HTML</code> to get a overview of the <code>gameday</code> package.</p>
 <p>You can also read the <code>Rmarkdown</code> file for the vignette of <code>gameday</code> <a href="https://github.com/yisui/gameday/blob/master/vignettes/overview.Rmd">here</a>.</p>
+<p><strong>NOTE: There are some very useful discussion about “vignettes” at our class discussion board <a href="https://github.com/STAT545-UBC/Discussion/issues/68">here</a>. For me, I removed “inst/doc” from “.gitigonre” to make sure vignette works.</strong></p>
 </div>
 
 

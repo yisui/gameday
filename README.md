@@ -18,7 +18,8 @@ library(devtools)
 install_github("yisui/gameday")
 ```
 
-__NOTE: Here the package `devtools` is needed.__
+__NOTE: Here the package `devtools` is needed. To make sure vignette get built, we can 
+inculde `build_vignettes = TRUE` in `install_github()`.__
 
 ## How gameday works
 
@@ -72,10 +73,13 @@ vignette. To access the vignette, after loading the `gameday` package, you run t
 following command in the `R` console:
 
 ```r
-library(gameday)
 browseVignettes(package = "gameday")
 ```
 
 Then you can click on `HTML` to get a overview of the `gameday` package.
 
 You can also read the `Rmarkdown` file for the vignette of `gameday` [here](https://github.com/yisui/gameday/blob/master/vignettes/overview.Rmd).
+
+__NOTE: There are some very useful discussion about "vignettes" at our class discussion 
+board [here](https://github.com/STAT545-UBC/Discussion/issues/68). For me, I removed 
+"inst/doc" from ".gitigonre" to make sure vignette works.__ 
