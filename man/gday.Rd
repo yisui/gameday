@@ -7,7 +7,8 @@ gday(team = "canucks", date = Sys.Date())
 }
 \arguments{
 \item{\code{team}}{The name of the team which you want to check with.
-The default is set to be "canucks".}
+The default is set to be "canucks". It will also work if you just enter in
+the city name where the team located.}
 
 \item{\code{date}}{The date gives you option to see whether the team plays or
 played on a particular day. The default is set to be today's date.}
@@ -34,6 +35,7 @@ case in \code{team} is ignored
 ## By default, gday() is the same thing as gday("canucks", Sys.Date())
 gday()
 gday("Bruins", "2014-11-02")
+gday("Vancouver")
 }
 \keyword{misc}
 

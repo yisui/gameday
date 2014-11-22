@@ -33,7 +33,7 @@ library(gameday)
 
 ## Function gday(team, date)
 
-This function gives the option to check whether a specified NHL team has a 
+This function checks whether a specified NHL team has a 
 game on a specified date. 
 
 The function has two arguments: `team` and `date`. __NOTE: Both these two argument 
@@ -80,7 +80,7 @@ identical(gday("canucks"), gday("Vancouver"))
 
 ## Function scores(date)
 
-This function gives the option to display the scores of all the games on a 
+This function gives the scores of all the games on a 
 specified date as a `data.frame`. 
 
 The function only takes one argument `date`. Again, the date should be in the right date 
@@ -94,7 +94,7 @@ knitr::kable(scores("2014-11-19"))
 
 __NOTE: `knitr` is used above to make a nice looking table.__
 
-We can see that it returns a `data.frame` six columns. The first column shows the name of 
+We can see that it returns a `data.frame` of six columns. The first column shows the name of 
 the home team, the second column for the name of the away team. The third column gives 
 the score for the home team, while the score for the away team is given on the forth 
 column. The column "stage" shows the current stage of the game and the 
@@ -106,7 +106,7 @@ started yet, in the "stage" column it will show the game starting time in EST. I
 game is in progress, it will show which period the game is at and the remaining time for
 this period. If a game has finished, it will show "Final".__
 
-Since we can use the function `score(date)` to get a very informative `data.frame` with 
+Since we can use the function `scores(date)` to get a very informative `data.frame` with 
 all the scores for the games at a particular date, we can go from this 
 `data.frame` to gain some insight. For example, we can use the `data.frame` to list all 
 winning teams on "2014-11-18". In order to do that, we will need our old friend `dplyr`.
@@ -117,7 +117,7 @@ suppressPackageStartupMessages(library(dplyr))
 
 Now we can use `dplyr` to find the winning teams on "2014-11-18".
 ```{r}
-# look for the winning teams  on "2014-11-18"
+# look for the winning teams on "2014-11-18"
 scores_data <- scores("2014-11-18")
 
 scores_data %>%

@@ -38,7 +38,7 @@ knitr::kable(scores("2014-11-19"))
 suppressPackageStartupMessages(library(dplyr))
 
 ## ------------------------------------------------------------------------
-# look for the winning teams  on "2014-11-18"
+# look for the winning teams on "2014-11-18"
 scores_data <- scores("2014-11-18")
 
 scores_data %>%

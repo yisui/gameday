@@ -70,7 +70,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </div>
 <div id="function-gdayteam-date" class="section level2">
 <h2>Function gday(team, date)</h2>
-<p>This function gives the option to check whether a specified NHL team has a game on a specified date.</p>
+<p>This function checks whether a specified NHL team has a game on a specified date.</p>
 <p>The function has two arguments: <code>team</code> and <code>date</code>. <strong>NOTE: Both these two argument should be input as a string, i.e. with quotation mark around the input argument, and the date should be in the right date format, i.e. “yyyy-mm-dd”.</strong> In default, the <code>team</code> is set to be “Canucks” and <code>date</code> is set to be today’s date. For example, we can check whether “Canucks” has a game tonight with:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check whether &quot;Canucks&quot; has a game today</span>
 <span class="kw">gday</span>()</code></pre>
@@ -102,7 +102,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </div>
 <div id="function-scoresdate" class="section level2">
 <h2>Function scores(date)</h2>
-<p>This function gives the option to display the scores of all the games on a specified date as a <code>data.frame</code>.</p>
+<p>This function gives the scores of all the games on a specified date as a <code>data.frame</code>.</p>
 <p>The function only takes one argument <code>date</code>. Again, the date should be in the right date format, i.e. “yyyy-mm-dd”. For example, we can check the scores for the games happen on “2014-11-19”:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># look up the scores for the games on &quot;2014-11-19&quot;</span>
 knitr::<span class="kw">kable</span>(<span class="kw">scores</span>(<span class="st">&quot;2014-11-19&quot;</span>))</code></pre>
@@ -137,13 +137,13 @@ knitr::<span class="kw">kable</span>(<span class="kw">scores</span>(<span class=
 </tbody>
 </table>
 <p><strong>NOTE: <code>knitr</code> is used above to make a nice looking table.</strong></p>
-<p>We can see that it returns a <code>data.frame</code> six columns. The first column shows the name of the home team, the second column for the name of the away team. The third column gives the score for the home team, while the score for the away team is given on the forth column. The column “stage” shows the current stage of the game and the last column gives a friendly note about whether you will be able to watch the game on “gamecenter” or not.</p>
+<p>We can see that it returns a <code>data.frame</code> of six columns. The first column shows the name of the home team, the second column for the name of the away team. The third column gives the score for the home team, while the score for the away team is given on the forth column. The column “stage” shows the current stage of the game and the last column gives a friendly note about whether you will be able to watch the game on “gamecenter” or not.</p>
 <p><strong>NOTE: There are three possible outcomes in the “stage” column. If a game haven’t started yet, in the “stage” column it will show the game starting time in EST. If the game is in progress, it will show which period the game is at and the remaining time for this period. If a game has finished, it will show “Final”.</strong></p>
-<p>Since we can use the function <code>score(date)</code> to get a very informative <code>data.frame</code> with all the scores for the games at a particular date, we can go from this <code>data.frame</code> to gain some insight. For example, we can use the <code>data.frame</code> to list all winning teams on “2014-11-18”. In order to do that, we will need our old friend <code>dplyr</code>.</p>
+<p>Since we can use the function <code>scores(date)</code> to get a very informative <code>data.frame</code> with all the scores for the games at a particular date, we can go from this <code>data.frame</code> to gain some insight. For example, we can use the <code>data.frame</code> to list all winning teams on “2014-11-18”. In order to do that, we will need our old friend <code>dplyr</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load package &quot;dplyr&quot;</span>
 <span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(dplyr))</code></pre>
 <p>Now we can use <code>dplyr</code> to find the winning teams on “2014-11-18”.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># look for the winning teams  on &quot;2014-11-18&quot;</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># look for the winning teams on &quot;2014-11-18&quot;</span>
 scores_data &lt;-<span class="st"> </span><span class="kw">scores</span>(<span class="st">&quot;2014-11-18&quot;</span>)
 
 scores_data %&gt;%
